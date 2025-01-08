@@ -53,7 +53,8 @@ public static class SeedData
             var newAdminCommand = new CreateUserCommand
             {
                 Password = user.Password, FirstName = user.FirstName,
-                LastName = user.LastName, Email = user.UserName
+                LastName = user.LastName, Email = user.UserName,
+                IsActivated = true
             };
             var newUserResult = await mediator.Send(newAdminCommand);
             if (newUserResult.IsT1) continue;

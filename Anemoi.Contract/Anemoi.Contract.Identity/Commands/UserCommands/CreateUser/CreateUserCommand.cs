@@ -9,4 +9,5 @@ public sealed record CreateUserCommand : ICommandResult<UserIdResponse>
     public string Password { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
+    public bool IsActivated { get; set; }
 }

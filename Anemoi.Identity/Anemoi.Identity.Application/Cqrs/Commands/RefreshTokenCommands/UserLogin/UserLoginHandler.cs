@@ -43,7 +43,7 @@ public sealed class UserLoginHandler(
             .WithCondition(async refreshToken =>
             {
                 var user = await userRepository
-                    .GetFirstByConditionAsync(x => x.Email == command.UserName && x.IsActivated,
+                    .GetFirstByConditionAsync(x => x.Email == command.UserName.ToLower() && x.IsActivated,
                         token: cancellationToken);
                 if (user is null) return IdentityErrorDetail.UserError.NotFound();
                 if (user.ChangedPasswordTime is null)
